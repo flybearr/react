@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+// import JsxValue from './ex1026/JsxValue';
+import { examples } from './example';
+import { useState } from 'react';
+// import Menu from './Menu';
 
 function App() {
+  const [displayIndex, setDisplayIndex] = useState(0);
+
+  const selection = (
+    <select
+      value={displayIndex}
+      onChange={(e) => {
+        setDisplayIndex(Number(e.target.value));
+      }}
+    >
+      {examples.map((v, i) => {
+        return (
+          <option key={i} value={i}>
+            {v.name}
+          </option>
+        );
+      })}
+    </select>
+  );
+
+  // 動態元件語法，注意命名開頭英文一定要大寫
+  const MyComponent = examples[displayIndex].component;
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      {selection}
+      <hr />
+      <MyComponent />
+    </>
   );
 }
 
