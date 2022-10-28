@@ -7,8 +7,32 @@ import Parent from './ex1027/Parent';
 import ParentPropType from './ex1027/ParentPropType';
 // export default的話，可以在導入(import)時直接改名稱
 import DataFlowParent from './ex1027-2/Parent';
+import InputDemo from './ex1028/InputDemo';
+import HTML5Form from './ex1028/HTML5Form';
+import Bmi from './HW/Bmi';
+import HowOldAreYou from './HW/HowOldAreYou';
 
 export const examples = [
+  {
+    name: '不可以瑟瑟換算器',
+    patg: './HW/HowOldAreYou',
+    component: HowOldAreYou,
+  },
+  {
+    name: 'Bmi換算器',
+    patg: './HW/Bmi',
+    component: Bmi,
+  },
+  {
+    name: 'HTML5表單',
+    patg: './ex1028/HTML5Form',
+    component: HTML5Form,
+  },
+  {
+    name: '可控及不可控表單',
+    patg: './ex1028/InputDemo',
+    component: InputDemo,
+  },
   {
     name: '三種資料流',
     patg: './ex1027-2/Parent',
