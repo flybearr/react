@@ -1,0 +1,8 @@
+.completed{
+    color: gary;
+    text-decoration: line-through;
+}
+.not-completed{
+    color: red;
+    font-weight: bold;
+}

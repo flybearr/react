@@ -1,7 +1,7 @@
 import Counter from './ex1025/Counter';
 import JsxValue from './ex1026/JsxValue';
 import StudentList from './ex1026/Studentlist';
-import Menu from './ex1026/Menu';
+// import Menu from './ex1026/Menu';
 import Demo from './ex1026/Demo';
 import Parent from './ex1027/Parent';
 import ParentPropType from './ex1027/ParentPropType';
@@ -11,8 +11,26 @@ import InputDemo from './ex1028/InputDemo';
 import HTML5Form from './ex1028/HTML5Form';
 import Bmi from './HW/Bmi';
 import HowOldAreYou from './HW/HowOldAreYou';
+import Bmi2 from './ex1031/bmi-2';
+import BirthdaySelect from './ex1031/BirdaySelect';
+import TodoApp from './ex1031/TodoApp.js';
 
 export const examples = [
+  {
+    name: 'TodoApp',
+    patg: './ex1031/TodoApp',
+    component: TodoApp,
+  },
+  {
+    name: '上課寫的18算判斷器',
+    patg: './ex1031/BirdaySelect',
+    component: BirthdaySelect,
+  },
+  {
+    name: 'BMI2',
+    patg: './ex1031/bmi-2',
+    component: Bmi2,
+  },
   {
     name: '不可以瑟瑟換算器',
     patg: './HW/HowOldAreYou',
@@ -53,11 +71,11 @@ export const examples = [
     patg: './ex1026/Demo',
     component: Demo,
   },
-  {
-    name: 'MENU',
-    patg: './ex1026/Menu',
-    component: Menu,
-  },
+  // {
+  //   name: 'MENU',
+  //   patg: './ex1026/Menu',
+  //   component: Menu,
+  // },
   {
     name: '計數器',
     patg: './ex1025/Counter',
