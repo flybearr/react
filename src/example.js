@@ -14,8 +14,14 @@ import HowOldAreYou from './HW/HowOldAreYou';
 import Bmi2 from './ex1031/bmi-2';
 import BirthdaySelect from './ex1031/BirdaySelect';
 import TodoApp from './ex1031/TodoApp.js';
+import multipleInput from './ex1101/multipleInput';
 
 export const examples = [
+  {
+    name: '多個表單元素共用單一state',
+    patg: './ex1101/multipleInput',
+    component: multipleInput,
+  },
   {
     name: 'TodoApp',
     patg: './ex1031/TodoApp',

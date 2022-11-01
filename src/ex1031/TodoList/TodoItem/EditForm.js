@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
-function EditForm({ id, updateTodo, inputEditingValue, setInputEditingValue }) {
+function EditForm({ id, updateTodo, text }) {
+  const [inputEditingValue, setInputEditingValue] = useState(text);
   return (
     <>
       <input
@@ -8,6 +9,14 @@ function EditForm({ id, updateTodo, inputEditingValue, setInputEditingValue }) {
         value={inputEditingValue}
         onChange={(e) => {
           setInputEditingValue(e.target.value);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            updateTodo(id, {
+              text: inputEditingValue,
+              editing: false,
+            });
+          }
         }}
       />
       <button

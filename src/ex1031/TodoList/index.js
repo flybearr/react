@@ -1,6 +1,4 @@
-import { useState } from 'react';
-import EditForm from './EditForm';
-import TodoItem from './TodoItem';
+import TodoItem from './TodoItem/';
 
 function TodoList({
   todos,
@@ -8,51 +6,35 @@ function TodoList({
   toggleTodoEditing,
   updateTodo,
   deleteTodo,
+  condition,
+  searchKeyword,
 }) {
-  const [inputEditingValue, setInputEditingValue] = useState('');
+  // const [inputEditingValue, setInputEditingValue] = useState('');
 
   return (
     <>
       <ul>
-        {todos.map((v, i) => {
-          // 重要！ key值會因索引值變後也會改變，這裡不能用索引值當key
-          return (
-            <li
-              key={v.id}
-              className={v.completed ? 'completed' : 'not-completed'}
-            >
-              <input
-                type="checkbox"
-                checked={v.completed}
-                onChange={() => {
-                  toggleTodoCompleted(v.id);
-                }}
+        {todos
+          .filter((v, i) => {
+            if (condition === 'active')
+              return !v.completed && v.text.includes(searchKeyword);
+            if (condition === 'completed')
+              return v.completed && v.text.includes(searchKeyword);
+            return v.text.includes(searchKeyword);
+          })
+          .map((v, i) => {
+            // 重要！ key值會因索引值變後也會改變，這裡不能用索引值當key
+            return (
+              <TodoItem
+                key={v.id}
+                todo={v}
+                toggleTodoCompleted={toggleTodoCompleted}
+                toggleTodoEditing={toggleTodoEditing}
+                updateTodo={updateTodo}
+                deleteTodo={deleteTodo}
               />
-              {v.editing ? (
-                <EditForm
-                  id={v.id}
-                  updateTodo={updateTodo}
-                  inputEditingValue={inputEditingValue}
-                  setInputEditingValue={setInputEditingValue}
-                />
-              ) : (
-                <TodoItem
-                  id={v.id}
-                  text={v.text}
-                  toggleTodoEditing={toggleTodoEditing}
-                  setInputEditingValue={setInputEditingValue}
-                />
-              )}
-              <button
-                onClick={() => {
-                  deleteTodo(v.id);
-                }}
-              >
-                X
-              </button>
-            </li>
-          );
-        })}
+            );
+          })}
       </ul>
     </>
   );

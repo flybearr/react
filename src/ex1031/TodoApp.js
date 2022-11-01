@@ -4,19 +4,30 @@ import './TodoApp.css';
 import AddForm from './addForm';
 import TodoList from './TodoList/';
 
+const sample = [
+  {
+    id: 1,
+    text: '買牛奶',
+    completed: true,
+    editing: false,
+  },
+  { id: 2, text: '學react', completed: false, editing: false },
+];
+
 function TodoApp() {
   // 編輯用
   // const [inputEditingValue, setInputEditingValue] = useState('');
 
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      text: '買牛奶',
-      completed: true,
-      editing: false,
-    },
-    { id: 2, text: '學react', completed: false, editing: false },
-  ]);
+  const [todos, setTodos] = useState(sample);
+  // const [todosDisplay, setTodosDisplay] = useState(sample);
+  // 使用全app過濾條件 'all' | 'active' | 'completed'
+  const [condition, setCondition] = useState('all');
+
+  // 輸入用(可控表單元件用)
+  const [inputKeyword, setInputKeyword] = useState('');
+
+  // 按下搜尋按鈕用，真正搜尋用
+  const [searchKeyword, setSearchKeyWord] = useState('');
 
   const addTodo = (text) => {
     // id
@@ -81,8 +92,47 @@ function TodoApp() {
     <>
       <h1>Todo待辨事項</h1>
       <AddForm addTodo={addTodo} />
+      <hr />
+      <input
+        type="text"
+        value={inputKeyword}
+        onChange={(e) => {
+          setInputKeyword(e.target.value);
+        }}
+      />
+      <button
+        onClick={() => {
+          setSearchKeyWord(searchKeyword);
+        }}
+      >
+        搜尋
+      </button>
+      <hr />
+      <button
+        onClick={() => {
+          setCondition('all');
+        }}
+      >
+        全部
+      </button>
+      <button
+        onClick={() => {
+          setCondition('active');
+        }}
+      >
+        進行中
+      </button>
+      <button
+        onClick={() => {
+          setCondition('completed');
+        }}
+      >
+        已完成
+      </button>
       <TodoList
         todos={todos}
+        searchKeyword={searchKeyword}
+        condition={condition}
         toggleTodoCompleted={toggleTodoCompleted}
         toggleTodoEditing={toggleTodoEditing}
         updateTodo={updateTodo}
