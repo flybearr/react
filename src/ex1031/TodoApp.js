@@ -102,7 +102,7 @@ function TodoApp() {
       />
       <button
         onClick={() => {
-          setSearchKeyWord(searchKeyword);
+          setSearchKeyWord(inputKeyword);
         }}
       >
         搜尋
