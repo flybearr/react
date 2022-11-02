@@ -15,8 +15,26 @@ import Bmi2 from './ex1031/bmi-2';
 import BirthdaySelect from './ex1031/BirdaySelect';
 import TodoApp from './ex1031/TodoApp.js';
 import multipleInput from './ex1101/multipleInput';
+import HTML5validForm from './ex1102/HTML5validForm';
+import LifeCycle from './ex1102-2/Lifecycle';
+import User from './ex1102-3/User';
 
 export const examples = [
+  {
+    name: 'User',
+    patg: './ex1102-3/Use',
+    component: User,
+  },
+  {
+    name: '生命週期',
+    patg: './ex1102-2/Lifecycle',
+    component: LifeCycle,
+  },
+  {
+    name: 'HTML5表單驗證',
+    patg: './ex1102/HTML5validForm',
+    component: HTML5validForm,
+  },
   {
     name: '多個表單元素共用單一state',
     patg: './ex1101/multipleInput',
