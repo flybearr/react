@@ -18,8 +18,20 @@ import multipleInput from './ex1101/multipleInput';
 import HTML5validForm from './ex1102/HTML5validForm';
 import LifeCycle from './ex1102-2/Lifecycle';
 import User from './ex1102-3/User';
+import Image from './ex1103/Image';
+import UserDemo from './ex1103-2/UserDemo';
 
 export const examples = [
+  {
+    name: 'UserDemo',
+    patg: './ex1103-2/UserDemo',
+    component: UserDemo,
+  },
+  {
+    name: 'Image',
+    patg: './ex1103/Image',
+    component: Image,
+  },
   {
     name: 'User',
     patg: './ex1102-3/Use',
