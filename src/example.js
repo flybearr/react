@@ -20,8 +20,20 @@ import LifeCycle from './ex1102-2/Lifecycle';
 import User from './ex1102-3/User';
 import Image from './ex1103/Image';
 import UserDemo from './ex1103-2/UserDemo';
+import UserPage from './ex1104-1/UserPage';
+import BS5test from './ex1104-1/BS5test';
 
 export const examples = [
+  {
+    name: 'BS5test',
+    patg: './ex1104-1/BS5test',
+    component: BS5test,
+  },
+  {
+    name: 'UserPage',
+    patg: './ex1104-1/UserPage',
+    component: UserPage,
+  },
   {
     name: 'UserDemo',
     patg: './ex1103-2/UserDemo',
